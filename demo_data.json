@@ -8,8 +8,8 @@
   ],
   "posts": [
     {"title": "Birinchi blogim", "body": "Salom, bu mening birinchi postim!", "user_id": 1},
-    {"title": "Sayohat kundaligi", "body": "Buxoroga sayohatim juda ajoyib bo‘ldi.", "user_id": 1},
-    {"title": "Kitob o‘qish foydasi", "body": "Har kuni kitob o‘qish ongni kengaytiradi.", "user_id": 2},
+    {"title": "Sayohat kundaligi", "body": "Buxoroga sayohatim juda ajoyib bo'ldi.", "user_id": 1},
+    {"title": "Kitob o'qish foydasi", "body": "Har kuni kitob o‘qish ongni kengaytiradi.", "user_id": 2},
     {"title": "Texnologiya yangiliklari", "body": "Sun’iy intellekt juda tez rivojlanmoqda.", "user_id": 2},
     {"title": "Dasturlash sirlarini o‘rganish", "body": "Python tilida kod yozishni boshladim.", "user_id": 3},
     {"title": "Frontend vs Backend", "body": "Ikkalasini ham bilish foydali, lekin backend men uchun qiziqroq.", "user_id": 3},

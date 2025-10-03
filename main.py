@@ -1,28 +1,32 @@
-import json
 from database import Base, engine, SessionLocal
 from models import User, Post, Comment
+import json
 
-def init_db():
-    Base.metadata.drop_all(bind=engine)
-    Base.metadata.create_all(bind=engine)
+# Jadvalni yaratish
+Base.metadata.create_all(bind=engine)
+print("✅ Tables created successfully!")
 
-def load_demo_data():
-    db = SessionLocal()
-    with open("demo_data.json", "r") as f:
-        data = json.load(f)
+# Sessiyani ochish
+db = SessionLocal()
 
-    # Users larni kriting
-    db.commit()
+# JSON fayldan ma’lumot o‘qish
+with open("demo_data.json", "r", encoding="utf-8") as f:
+    data = json.load(f)
 
-    # Posts larni kriting
-    db.commit()
+# Users
+for u in data.get("users", []):
+    db.add(User(username=u["username"], email=u["email"]))
+db.commit()
 
-    # Comments larni kriting
-    db.commit()
+# Posts
+for p in data.get("posts", []):
+    db.add(Post(title=p["title"], body=p["body"], user_id=p["user_id"]))
+db.commit()
 
-    db.close()
+# Comments
+for c in data.get("comments", []):
+    db.add(Comment(text=c["text"], user_id=c["user_id"], post_id=c["post_id"]))
+db.commit()
 
-if __name__ == "__main__":
-    init_db()
-    load_demo_data()
-    print("✅ Database initialized and demo data loaded!")
+db.close()
+print("✅ Demo data loaded successfully!")
