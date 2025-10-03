@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 from models import User, Post, Comment
 
-# --- CREATE ---
+
 def create_user(db: Session, username: str, email: str):
     user = db.query(User).filter(User.username == username).first()
     if user:
@@ -26,7 +26,7 @@ def create_comment(db: Session, user_id: int, post_id: int, text: str):
     db.refresh(new_comment)
     return new_comment
 
-# --- UPDATE ---
+
 def update_post(db: Session, post_id: int, title: str, body: str):
     post = db.query(Post).filter(Post.id == post_id).first()
     if post:
@@ -47,7 +47,6 @@ def delete_post(db: Session, post_id: int):
     return post
 
 
-# --- QUERY ---
 def get_user_posts(db: Session, user_id: int):
     return db.query(Post).filter(Post.user_id == user_id).all()
 
